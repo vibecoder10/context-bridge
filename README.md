@@ -64,8 +64,12 @@ snapshots so editing a project does not replace their active access guards.
 The client communicates with
 `https://context-bridge.ayler92.chatgpt.site/` over HTTPS. That service stores
 shared messages, participant/account and project metadata, task briefs, output
-versions and explicitly shared artifacts. Shared messages follow the service's
-30-day retention policy. See the published privacy policy for deletion requests.
+versions and explicitly shared artifacts. Legacy direct-discussion messages
+expire after 30 days and are removed on the next authenticated discussion
+request. Shared workspace chat, tasks, versions, decisions and images remain
+with their project until the owner deletes it or a deletion request is fulfilled.
+Account, project and delivery metadata have separate retention purposes. See
+the published privacy policy for deletion requests and provider records.
 
 Provider login credentials stay local. Private connection credentials and local
 listener state are stored on the owner's device and are never packaged here.
