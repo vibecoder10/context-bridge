@@ -44,6 +44,10 @@ def claude_environment():
         "HOME": str(Path.home()),
         "TMPDIR": os.environ.get("TMPDIR", "/tmp"),
         "LANG": os.environ.get("LANG", "en_US.UTF-8"),
+        "USER": os.environ.get("USER", ""),
+        "LOGNAME": os.environ.get("LOGNAME", ""),
+        "SHELL": os.environ.get("SHELL", "/bin/sh"),
+        "__CF_USER_TEXT_ENCODING": os.environ.get("__CF_USER_TEXT_ENCODING", ""),
     }
     # Setting even the default config path changes Claude's credential namespace.
     config_dir = os.environ.get("CLAUDE_CONFIG_DIR")
