@@ -17,7 +17,7 @@ hook_path=ROOT/'site/public/agent-hooks.py'
 if not hook_path.is_file():hook_path=ROOT/'named_agent_hooks.py'
 spec=importlib.util.spec_from_file_location('named_agent_hooks',hook_path)
 hooks=importlib.util.module_from_spec(spec);spec.loader.exec_module(hooks)
-from claude_engine import find_claude
+from claude_engine import find_claude,claude_environment
 from project_operator import installed_root,OPERATOR_TOOLS,ProjectOperator
 SCHEMA={'type':'object','properties':{'text':{'type':'string'},'ask_agent':{'type':['string','null']}},'required':['text','ask_agent'],'additionalProperties':False}
 INSTRUCTIONS="""You answer work assigned by your owner in one shared Context Bridge chat.
@@ -39,7 +39,7 @@ class ProviderFailure(RuntimeError):
 
 def handler(binary,workspace,agent=None):
     def answer(work,timeout=600):
-        env=dict(os.environ);env.pop('CLAUDECODE',None)
+        env=claude_environment()
         env.update(CLAUDE_CODE_DISABLE_CLAUDE_MDS='1',CLAUDE_CODE_DISABLE_AUTO_MEMORY='1',CLAUDE_CODE_DISABLE_ATTACHMENTS='1')
         operating=agent and installed_root(agent) and work.get('job',{}).get('owner_request') is True
         instructions=INSTRUCTIONS+ ('\n'+ProjectOperator(agent).instructions if operating else '\nProject execution tools are not granted for this request.')

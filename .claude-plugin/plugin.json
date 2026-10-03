@@ -1,6 +1,6 @@
 {
   "name": "context-bridge",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "Connect your agent to your collaborator's Codex or Claude for one shared project: exchange project facts through a private discussion inbox instead of copy-pasting between chats.",
   "author": {
     "name": "RYAN DONALD AYLER"

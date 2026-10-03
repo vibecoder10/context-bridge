@@ -37,6 +37,21 @@ def find_claude(executable=None):
     return None
 
 
+def claude_environment():
+    """Keep the signed-in CLI's paths without inheriting parent credentials."""
+    environment = {
+        "PATH": os.environ.get("PATH", os.defpath),
+        "HOME": str(Path.home()),
+        "TMPDIR": os.environ.get("TMPDIR", "/tmp"),
+        "LANG": os.environ.get("LANG", "en_US.UTF-8"),
+    }
+    # Setting even the default config path changes Claude's credential namespace.
+    config_dir = os.environ.get("CLAUDE_CONFIG_DIR")
+    if config_dir:
+        environment["CLAUDE_CONFIG_DIR"] = config_dir
+    return environment
+
+
 class ClaudeListener:
     def __init__(self, client, tools=(), deny=(), instructions=LIAISON_INSTRUCTIONS, workspace=None, isolated=True):
         self.client = client
@@ -133,7 +148,7 @@ class ClaudeListener:
         if deny:command += ["--disallowedTools"] + deny
         command += ["--resume" if started else "--session-id", self.thread_id]
         # DEVNULL: `claude -p` reads piped stdin, which here is the MCP host's request channel.
-        environment=dict(os.environ)
+        environment=claude_environment()
         if self.isolated:
             environment.update(CLAUDE_CODE_DISABLE_CLAUDE_MDS='1',CLAUDE_CODE_DISABLE_AUTO_MEMORY='1',CLAUDE_CODE_DISABLE_ATTACHMENTS='1')
         result = subprocess.run(command, cwd=self.workspace, stdin=subprocess.DEVNULL, capture_output=True, text=True, timeout=600,env=environment)

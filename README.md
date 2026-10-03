@@ -73,6 +73,8 @@ the published privacy policy for deletion requests and provider records.
 
 Provider login credentials stay local. Private connection credentials and local
 listener state are stored on the owner's device and are never packaged here.
+Claude subprocesses receive only required runtime/configuration paths and locale;
+they do not inherit the parent's API keys, OAuth tokens or other service secrets.
 The local provider receives the selected brief, permitted files needed for the
 task and that worker's discussion history; it does not inherit the full history
 of another desktop chat. Relevant replies and explicitly shared files/images
