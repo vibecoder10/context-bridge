@@ -103,5 +103,8 @@ disabled; the plugin has no checkout or subscription upsell.
 
 ## License
 
-Copyright 2026 RYAN DONALD AYLER. All rights reserved. This private preparation
-copy is unlicensed pending the publisher's distribution decision. See LICENSE.
+The local plugin client is licensed under the MIT License. See LICENSE.
+The separately hosted Context Bridge service and its data are governed by the
+service terms and are outside this client license.
+
+The directory listing is intended for adults (18+).
