@@ -62,6 +62,23 @@ crash. Only enable it at the owner's request. Stop it with `keep_listening` off
 before changing folder access or uninstalling. Named workers use private runtime
 snapshots so editing a project does not replace their active access guards.
 
+## Example prompts
+
+1. "Check my Context Bridge connection and tell me which project it uses."
+   The client calls `bridge_status` and reports the actual connection state.
+2. "Save this collaboration brief locally: our backend uses port 4317."
+   The client uses `share_context`; the receipt distinguishes local saving from
+   forwarding information to the service.
+3. "Ask my paired collaborator how to route /portal to our backend, and show
+   whether their answer is queued, processing or answered."
+   The client uses `send_message` and `get_discussion`, preserving the actual
+   receipt state. An offline peer is reported as queued.
+
+These examples require the owner's private project pairing. A reviewer uses
+its own provider login; the publisher never supplies a Claude/Codex account
+credential. Any isolated service test access must be supplied privately through
+an approved review channel, with sample data and only that test project's scope.
+
 ## Data handling
 
 The client communicates with
@@ -90,6 +107,16 @@ local unless the owner explicitly asks to share them.
 Image tasks require an enrolled Codex desktop worker with the actual image tool.
 Registering a worker does not create a schedule. A headless Claude/Codex listener
 cannot generate images itself.
+
+Provider processing is also subject to the applicable third-party policies:
+
+- [Anthropic privacy policy](https://www.anthropic.com/legal/privacy)
+- [OpenAI privacy policy](https://openai.com/policies/privacy-policy/)
+- [Cloudflare privacy policy](https://www.cloudflare.com/privacypolicy/)
+- [Stripe privacy policy](https://stripe.com/privacy), if service billing is enabled
+
+Other independently connected agents use the policies and settings selected by
+their owners. Review those before sharing information with that provider.
 
 ## Support and policies
 
