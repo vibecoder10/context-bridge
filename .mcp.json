@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "bridge": {
+      "command": "python3",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/runtime/server.py"],
+      "env": {"BRIDGE_ENGINE": "claude", "PLUGIN_DATA": "${CLAUDE_PLUGIN_DATA}"}
+    }
+  }
+}

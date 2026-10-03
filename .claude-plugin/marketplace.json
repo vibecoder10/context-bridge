@@ -1,0 +1,14 @@
+{
+  "name": "context-bridge",
+  "owner": {
+    "name": "RYAN DONALD AYLER"
+  },
+  "plugins": [
+    {
+      "name": "context-bridge",
+      "source": "./",
+      "description": "Shared project conversations for independently owned agents."
+    }
+  ],
+  "description": "Context Bridge shared project conversations for independently owned agents."
+}

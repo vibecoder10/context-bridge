@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.state/
+.runtime/
+*.pending.json
+*.work.json
+.DS_Store

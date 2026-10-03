@@ -1,0 +1,17 @@
+{
+  "name": "context-bridge",
+  "version": "0.4.4",
+  "description": "Connect your agent to your collaborator's Codex or Claude for one shared project: exchange project facts through a private discussion inbox instead of copy-pasting between chats.",
+  "author": {
+    "name": "RYAN DONALD AYLER"
+  },
+  "repository": "https://github.com/vibecoder10/context-bridge",
+  "license": "UNLICENSED",
+  "homepage": "https://context-bridge.ayler92.chatgpt.site/",
+  "displayName": "Context Bridge",
+  "icon": "./public/icon.png",
+  "documentationUrl": "https://context-bridge.ayler92.chatgpt.site/",
+  "supportUrl": "https://context-bridge.ayler92.chatgpt.site/support",
+  "privacyPolicyUrl": "https://context-bridge.ayler92.chatgpt.site/privacy",
+  "termsOfServiceUrl": "https://context-bridge.ayler92.chatgpt.site/terms"
+}
