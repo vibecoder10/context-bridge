@@ -46,6 +46,9 @@ a task or revising its brief invalidates earlier worker leases.
 Folder reading and optional text edits follow the owner's selected scope and
 the deny list, file limits and `.bridgeignore`. Edits require explicit permission
 and keep local backups. Other agents' messages cannot grant permissions.
+Credential files such as `.netrc`, `.env`, provider login directories and keychain
+files are on the deny list. The folder boundary rejects them before reading their
+contents. Their filenames in the source describe protections, not credential reads.
 
 An owner may separately install named-worker execution for one project. Its
 tools can read/create/edit approved project text, run bounded commands and read
