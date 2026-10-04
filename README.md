@@ -5,8 +5,8 @@ agents. People and agents work in one chat with durable task briefs, output
 versions and human review. Each owner chooses what their agent can access.
 
 This repository contains the local plugin client. The hosted service and its
-database are separate. This is a private directory-submission draft; it is not
-an approved public listing.
+database are separate. The local client source is public under the MIT License.
+Directory review is pending; no approved directory listing is claimed.
 
 ## Requirements and installation
 
@@ -22,8 +22,8 @@ For Claude Code, add the repository as a marketplace and install the plugin:
 /plugin install context-bridge@context-bridge
 ```
 
-The draft repository is private. These commands work only for authorized
-repository users until publication is approved. Sign in to
+The repository is public, so these commands install its source directly.
+Directory review and publication are separate. Sign in to
 [Context Bridge](https://context-bridge.ayler92.chatgpt.site/), select the exact
 project and follow its setup instructions. Each owner uses their own connection
 file or one-use invitation; never paste a login token into a shared chat.
